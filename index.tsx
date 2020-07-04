@@ -3,14 +3,21 @@ import { render } from 'react-dom';
 import Hello from './Hello';
 import './style.css';
 
-interface AppProps { }
-interface AppState {
-  name: string;
+
+let nombre = 'hector';
+
+function Micomponente(){
+  return <p>hello React</p>;
 }
 
-class App extends Component<AppProps, AppState> {
-  constructor(props) {
-    super(props);
+class Micomponentedeclase extends Component{
+  render (){
+    return <p> hola soy de la clase</p>;
+  }
+}
+class App extends Component{
+  constructor() {
+    super();
     this.state = {
       name: 'React'
     };
@@ -19,10 +26,7 @@ class App extends Component<AppProps, AppState> {
   render() {
     return (
       <div>
-        <Hello name={this.state.name} />
-        <p>
-          Start editing to see some magic happen :)
-        </p>
+       <Micomponente />
       </div>
     );
   }
