@@ -5,7 +5,12 @@ import './style.css';
 
 
 let nombre = 'hector';
-
+ function A(props){
+   return <p> hola {props.nombre}</p>
+ }
+ function B(props){
+   return <p>{props.nombre}: 10</p>
+ }
 function Micomponente(){
   return <p>hello React</p>;
 }
@@ -26,7 +31,8 @@ class App extends Component{
   render() {
     return (
       <div>
-       <Micomponente />
+       <A />
+       <B />
       </div>
     );
   }
