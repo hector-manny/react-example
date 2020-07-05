@@ -3,26 +3,41 @@ import { render } from 'react-dom';
 import Hello from './Hello';
 import './style.css';
 
-class Contador extends Component{
-
+class Formulario extends Component{
   constructor(props){
-  super(props);
-  this.state ={
-    contador: 0
-  };
-}
-aumentar = ()=>{
- this.setState({
-   contador: this.state.contador + 1
- })
-}
-render(){
-  return (<div>
-     <p>{this.state.contador}</p>
-     <button onClick={ this.aumentar }>aumentar</button>
-     </div>);
-}
+    super(props);
+    this.state ={
+      email: '',
+      password: ''
+    }
+  }
 
+ syncEmailChanges(email){
+   this.setState({
+     email: email
+   })
+ }
+syncPasswordChanges(password){
+   this.setState({
+     password: password
+   })
+ }
+ submitForm=()=>{
+   console.log(this.state);
+ }
+  render(){
+    return (
+      <form>
+        <input onChange={(ev)=>{ this.syncEmailChanges(ev.target.value) }} type="email" value={this.state.email} placeholder="Email"/>
+        <input onChange={(ev)=>{ this.syncPasswordChanges(ev.target.value) }} type="password" value={this.state.password} placeholder="****"/>
+        <div>
+        <input onClick={ this.submitForm }
+         type="submit" 
+         value="Iniciar sesion" />
+        </div>
+      </form>
+    )
+  }
 }
 
 
@@ -37,7 +52,7 @@ class App extends Component{
   render() {
     return (
       <div>
-     <Contador />
+     <Formulario />
       </div>
     );
   }
