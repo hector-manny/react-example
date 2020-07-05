@@ -3,23 +3,29 @@ import { render } from 'react-dom';
 import Hello from './Hello';
 import './style.css';
 
+class Contador extends Component{
 
-let nombre = 'hector';
- function A(props){
-   return <p> hola {props.nombre}</p>
- }
- function B(props){
-   return <p>{props.nombre}: 10</p>
- }
-function Micomponente(){
-  return <p>hello React</p>;
+  constructor(props){
+  super(props);
+  this.state ={
+    contador: 0
+  };
+}
+aumentar = ()=>{
+ this.setState({
+   contador: this.state.contador + 1
+ })
+}
+render(){
+  return (<div>
+     <p>{this.state.contador}</p>
+     <button onClick={ this.aumentar }>aumentar</button>
+     </div>);
 }
 
-class Micomponentedeclase extends Component{
-  render (){
-    return <p> hola soy de la clase</p>;
-  }
 }
+
+
 class App extends Component{
   constructor() {
     super();
@@ -31,8 +37,7 @@ class App extends Component{
   render() {
     return (
       <div>
-       <A />
-       <B />
+     <Contador />
       </div>
     );
   }
